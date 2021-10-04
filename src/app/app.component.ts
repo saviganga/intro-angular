@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'intro-angular';
+  artists = ['wizkid', 'mr eazi', 'burna boy'];
+
+  onCreateArtist(artistName: string) {
+    this.artists.push(artistName)
+    console.log(this.artists)
+
+  }
 }
