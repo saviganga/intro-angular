@@ -10,6 +10,7 @@ import { ArtistsService } from "./artrists.service";
 
 export class ArtistsComponent implements OnInit, OnDestroy {
   artistsList: string[] = [];
+  isLoading = false
 
   // initialize a variable with 'Subscription' type ( it will be used to subscribe to a created event )
   private subs!: Subscription;
@@ -25,7 +26,10 @@ export class ArtistsComponent implements OnInit, OnDestroy {
 
       // set the list coming from subscription to artistslist
       this.artistsList = artists
+      this.isLoading = false
     })
+
+    this.isLoading = true
 
     // make a request to a server using the function in app service
     this.artistsService.getArtist()

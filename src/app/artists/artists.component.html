@@ -1,3 +1,4 @@
-<ol>
+<p *ngIf="isLoading">Loading...</p>
+<ol *ngIf="!isLoading">
   <li *ngFor="let artist of artistsList" (click)="onDeleteArtist(artist)">{{ artist }}</li>
 </ol>
