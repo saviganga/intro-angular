@@ -19,7 +19,6 @@ export class ArtistsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.artistsList = this.artistsService.artists
 
     // use the 'Subscription type' variable to subscribe to the 'subject' created in service for live updates of the resource in the service
     this.subs = this.artistsService.artistChanged.subscribe(artists => {
@@ -27,6 +26,9 @@ export class ArtistsComponent implements OnInit, OnDestroy {
       // set the list coming from subscription to artistslist
       this.artistsList = artists
     })
+
+    // make a request to a server using the function in app service
+    this.artistsService.getArtist()
   }
 
   onDeleteArtist(artistName: string) {
