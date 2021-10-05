@@ -1,2 +1,3 @@
-<app-artists-input (createdArtist)="onCreateArtist($event)"></app-artists-input>
-<app-artists [artistsList]="artists"></app-artists>
+<a [routerLink]="'/'">Artists</a> | <a [routerLink]="'/artists-input'">Input</a>
+<hr>
+<router-outlet></router-outlet>

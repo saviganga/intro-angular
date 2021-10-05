@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter } from "@angular/core";
+import { ArtistsService } from "./artrists.service";
 
 @Component({
   selector: 'app-artists-input',
@@ -7,11 +8,14 @@ import { Component, Output, EventEmitter } from "@angular/core";
 
 })
 export class ArtistsInputComponent {
-  @Output() createdArtist = new EventEmitter<string>();
   enteredArtist = '';
+
+  constructor(private artistService: ArtistsService ) {
+
+  }
+
   onCreateArtist() {
-    console.log(this.enteredArtist);
-    this.createdArtist.emit(this.enteredArtist)
+    this.artistService.addArtist(this.enteredArtist)
     this.enteredArtist = ''
   }
 
